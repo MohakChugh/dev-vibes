@@ -1,0 +1,7 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import { JsonFormatter } from '@/components/tools/format/FormatTools';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '21')!;
+---
+<ToolLayout {...tool}><JsonFormatter client:load /></ToolLayout>

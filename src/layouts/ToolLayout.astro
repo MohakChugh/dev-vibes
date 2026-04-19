@@ -1,0 +1,59 @@
+---
+import MainLayout from './MainLayout.astro';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  tags: string[];
+}
+
+const { title, description, category, tags } = Astro.props;
+---
+
+<MainLayout title={title} description={description}>
+  <div class="container py-8 space-y-8">
+    <div class="space-y-2">
+      <div class="flex items-center gap-2">
+        <Badge variant="outline">{category}</Badge>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight">{title}</h1>
+      <p class="text-lg text-muted-foreground">{description}</p>
+      <div class="flex flex-wrap gap-1 pt-2">
+        {tags.map(tag => (
+          <Badge key={tag} variant="secondary" class="text-[10px] uppercase font-semibold">{tag}</Badge>
+        ))}
+      </div>
+    </div>
+
+    <Separator />
+
+    <div class="grid gap-8">
+      <slot />
+    </div>
+
+    <Separator />
+
+    <article class="prose dark:prose-invert max-w-none space-y-6">
+      <slot name="seo-content" />
+    </article>
+  </div>
+</MainLayout>
+
+<style is:global>
+  .prose h2 {
+    @apply text-2xl font-bold mt-8 mb-4;
+  }
+  .prose p {
+    @apply text-muted-foreground mb-4;
+  }
+  .prose ul {
+    @apply list-disc pl-6 mb-4;
+  }
+  .prose li {
+    @apply text-muted-foreground mb-1;
+  }
+</style>

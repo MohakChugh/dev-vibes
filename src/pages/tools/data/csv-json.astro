@@ -1,0 +1,31 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import CsvJsonConverter from '@/components/tools/CsvJsonConverter';
+import { tools } from '@/config/tools';
+
+const tool = tools.find(t => t.id === '7')!;
+---
+
+<ToolLayout 
+  title={tool.name} 
+  description={tool.description} 
+  category={tool.category} 
+  tags={tool.tags}
+>
+  <CsvJsonConverter client:load />
+
+  <div slot="seo-content">
+    <h2>CSV to JSON and JSON to CSV Converter</h2>
+    <p>
+      CSV (Comma-Separated Values) is the universal format for spreadsheets and data exchange. JSON is the primary format for modern web development. This tool bridges the gap between them.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Automatic Header Detection:</strong> CSV → JSON mode uses the first row as object keys.</li>
+      <li><strong>Dynamic Typing:</strong> Automatically detects numbers and booleans in CSV data.</li>
+      <li><strong>Smart JSON Mapping:</strong> JSON → CSV mode handles arrays of objects and nested structures (best-effort).</li>
+      <li><strong>Browser-Based:</strong> No data is uploaded. Your CSV and JSON stay private on your machine.</li>
+    </ul>
+  </div>
+</ToolLayout>

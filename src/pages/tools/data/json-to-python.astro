@@ -1,0 +1,31 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import JsonToPython from '@/components/tools/JsonToPython';
+import { tools } from '@/config/tools';
+
+const tool = tools.find(t => t.id === '4')!;
+---
+
+<ToolLayout 
+  title={tool.name} 
+  description={tool.description} 
+  category={tool.category} 
+  tags={tool.tags}
+>
+  <JsonToPython client:load />
+
+  <div slot="seo-content">
+    <h2>Convert JSON to Python Classes</h2>
+    <p>
+      Python's `dataclasses` (introduced in Python 3.7) provide a concise way to define classes that primarily store data. This tool automates the creation of these dataclasses from your JSON input.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Dataclasses Support:</strong> Generates modern Python @dataclass definitions.</li>
+      <li><strong>Type Hinting:</strong> Includes standard Python type hints (str, int, float, bool, List).</li>
+      <li><strong>Typing Imports:</strong> Automatically includes necessary imports like `List` and `Any` from the `typing` module.</li>
+      <li><strong>Nested Structure:</strong> Recursively handles nested JSON objects by creating multiple dataclasses.</li>
+    </ul>
+  </div>
+</ToolLayout>

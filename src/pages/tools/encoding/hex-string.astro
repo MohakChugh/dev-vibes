@@ -1,0 +1,8 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import EncoderDecoder from '@/components/EncoderDecoder';
+import { stringToHex, hexToString } from '@/tools/encoding/encodingTools';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '16')!;
+---
+<ToolLayout {...tool}><EncoderDecoder client:load onEncode={stringToHex} onDecode={hexToString} /></ToolLayout>

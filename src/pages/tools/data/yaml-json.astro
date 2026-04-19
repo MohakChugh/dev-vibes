@@ -1,0 +1,31 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import YamlJsonConverter from '@/components/tools/YamlJsonConverter';
+import { tools } from '@/config/tools';
+
+const tool = tools.find(t => t.id === '6')!;
+---
+
+<ToolLayout 
+  title={tool.name} 
+  description={tool.description} 
+  category={tool.category} 
+  tags={tool.tags}
+>
+  <YamlJsonConverter client:load />
+
+  <div slot="seo-content">
+    <h2>YAML to JSON and JSON to YAML Converter</h2>
+    <p>
+      YAML (YAML Ain't Markup Language) is widely used for configuration files (like Docker, Kubernetes, and CI/CD pipelines). JSON is the standard for web APIs. Being able to convert between them is essential for developers.
+    </p>
+
+    <h2>Why use this tool?</h2>
+    <ul>
+      <li><strong>Bidirectional:</strong> Easily switch between YAML to JSON and JSON to YAML.</li>
+      <li><strong>Indent Control:</strong> Generates clean, readable output with standard 2-space indentation.</li>
+      <li><strong>Error Reporting:</strong> Helpful error messages if your input is malformed.</li>
+      <li><strong>Safe & Secure:</strong> All processing happens in your browser. Your configuration data is never sent to any server.</li>
+    </ul>
+  </div>
+</ToolLayout>

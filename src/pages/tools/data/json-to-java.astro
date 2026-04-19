@@ -1,0 +1,31 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import JsonToJava from '@/components/tools/JsonToJava';
+import { tools } from '@/config/tools';
+
+const tool = tools.find(t => t.id === '3')!;
+---
+
+<ToolLayout 
+  title={tool.name} 
+  description={tool.description} 
+  category={tool.category} 
+  tags={tool.tags}
+>
+  <JsonToJava client:load />
+
+  <div slot="seo-content">
+    <h2>Convert JSON to Java POJOs</h2>
+    <p>
+      Working with JSON in Java typically involves creating Plain Old Java Objects (POJOs) to map the data using libraries like Jackson or Gson. This tool generates those classes for you.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Lombok Support:</strong> Automatically adds @Data, @NoArgsConstructor, and @AllArgsConstructor annotations to reduce boilerplate.</li>
+      <li><strong>Standard Types:</strong> Uses standard Java types like String, Long, Double, and Boolean.</li>
+      <li><strong>Collections:</strong> Correctly identifies and uses `List<>` for arrays.</li>
+      <li><strong>Nested Classes:</strong> Creates separate public classes for nested objects in the JSON structure.</li>
+    </ul>
+  </div>
+</ToolLayout>

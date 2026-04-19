@@ -1,0 +1,8 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import EncoderDecoder from '@/components/EncoderDecoder';
+import { punycodeEncode, punycodeDecode } from '@/tools/encoding/encodingTools';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '18')!;
+---
+<ToolLayout {...tool}><EncoderDecoder client:load onEncode={punycodeEncode} onDecode={punycodeDecode} /></ToolLayout>

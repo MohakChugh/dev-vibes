@@ -1,0 +1,8 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import EncoderDecoder from '@/components/EncoderDecoder';
+import { base58EncodeStr, base58DecodeStr } from '@/tools/encoding/encodingTools';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '17')!;
+---
+<ToolLayout {...tool}><EncoderDecoder client:load onEncode={base58EncodeStr} onDecode={base58DecodeStr} /></ToolLayout>

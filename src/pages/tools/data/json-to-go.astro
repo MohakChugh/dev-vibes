@@ -1,0 +1,31 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import JsonToGo from '@/components/tools/JsonToGo';
+import { tools } from '@/config/tools';
+
+const tool = tools.find(t => t.id === '2')!;
+---
+
+<ToolLayout 
+  title={tool.name} 
+  description={tool.description} 
+  category={tool.category} 
+  tags={tool.tags}
+>
+  <JsonToGo client:load />
+
+  <div slot="seo-content">
+    <h2>Why convert JSON to Go Structs?</h2>
+    <p>
+      In Go (Golang), working with JSON requires defining structs with appropriate tags. This tool saves you time by automatically generating those structs with correct types and `json` tags.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>PascalCase Conversion:</strong> Automatically converts JSON keys to idiomatic PascalCase for Go struct fields.</li>
+      <li><strong>JSON Tags:</strong> Generates backtick-enclosed json tags for easy unmarshaling.</li>
+      <li><strong>Nested Structs:</strong> Detects and creates separate structs for nested JSON objects.</li>
+      <li><strong>Smart Type Mapping:</strong> Correctly identifies integers vs floating-point numbers.</li>
+    </ul>
+  </div>
+</ToolLayout>

@@ -1,0 +1,7 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import { LatexEditor } from '@/components/tools/format/MoreFormatTools';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '29')!;
+---
+<ToolLayout {...tool}><LatexEditor client:load /></ToolLayout>

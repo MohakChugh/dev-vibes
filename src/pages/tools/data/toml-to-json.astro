@@ -1,0 +1,31 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import TomlToJson from '@/components/tools/TomlToJson';
+import { tools } from '@/config/tools';
+
+const tool = tools.find(t => t.id === '8')!;
+---
+
+<ToolLayout 
+  title={tool.name} 
+  description={tool.description} 
+  category={tool.category} 
+  tags={tool.tags}
+>
+  <TomlToJson client:load />
+
+  <div slot="seo-content">
+    <h2>Convert TOML to JSON Online</h2>
+    <p>
+      TOML (Tom's Obvious, Minimal Language) is a configuration file format that's easy to read due to obvious semantics. It's used by many modern tools like Rust's Cargo and Hugo. Converting it to JSON is useful for programmatic processing in environments where JSON is the native format.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Standard Compliance:</strong> Supports the latest TOML specifications.</li>
+      <li><strong>Complex Types:</strong> Correctly handles nested tables, arrays of tables, and dates.</li>
+      <li><strong>Instant Preview:</strong> See your JSON output update in real-time as you type.</li>
+      <li><strong>Client-Side Only:</strong> No data ever leaves your computer.</li>
+    </ul>
+  </div>
+</ToolLayout>
