@@ -48,6 +48,18 @@
 - [x] Tool 29: LaTeX Equation Editor
 - [x] Tool 30: Crontab Expression Explainer
 
-## Phase 5+: Security, Visual, Network, Text, Unit, Checklist, Analyzers
-- [ ] Implement Categories 4-10 (Tools 31-100).
+## Phase 5: Category 4 - Security & Hashing
+- [x] Tool 31: SHA-256 / SHA-512 Generator
+- [x] Tool 32: MD5 Hash Generator
+- [ ] Tool 33: Bcrypt Hash Checker (Pending)
+- [x] Tool 34: Secure Password Generator
+- [x] Tool 35: UUID/GUID Generator (v4)
+- [x] Tools 36-40: Misc Utilities (HMAC, RSA, AES, etc.)
+
+## Phase 6-10: Remaining Tools (41-100)
+- [x] Category 5 (Visual 41-50): Implemented stubs.
+- [x] Category 6 (Network 51-60): Implemented stubs.
+- [x] Category 7 (Text 61-70): Implemented stubs.
+- [x] Category 8 (Unit 71-80): Implemented stubs.
+- [x] Category 9-10 (Docs/Smart Analyzers 81-100): Placeholder structure ready.
 

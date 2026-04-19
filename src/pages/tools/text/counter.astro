@@ -1,0 +1,6 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '61')!;
+---
+<ToolLayout {...tool}><div class="p-4 border rounded">Word/Char Counter UI stub</div></ToolLayout>

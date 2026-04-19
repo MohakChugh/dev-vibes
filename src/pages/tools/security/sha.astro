@@ -1,0 +1,7 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import { HashTool } from '@/components/tools/utility/UtilityTools';
+import { tools } from '@/config/tools';
+const tool = tools.find(t => t.id === '31')!;
+---
+<ToolLayout {...tool}><HashTool client:load type='sha256' /></ToolLayout>
