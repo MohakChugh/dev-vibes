@@ -1,0 +1,7 @@
+---
+import ToolLayout from '@/layouts/ToolLayout.astro';
+import { BaseConverter } from '@/components/tools/math/BaseConverter';
+---
+<ToolLayout title="Base Converter" description="Convert numbers between bases" category="Math" tags={['math', 'converter']}>
+    <BaseConverter client:load />
+</ToolLayout>
